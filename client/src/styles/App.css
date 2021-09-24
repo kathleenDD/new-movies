@@ -1,0 +1,114 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #000;
+  color: #f9f6e5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #E50914;
+}
+
+.App {
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  width: 100%;
+  padding: 20px 40px;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.main .left-section {
+  width: 30%;
+  height: 800px;
+}
+
+.main .movie-details {
+  width: 70%;
+  /* max-width: 1300px; */
+  /* min-width: 600px; */
+}
+
+button:focus,
+input:focus {
+  outline: none !important;
+  /* to remove blue border */
+}
+
+/* MOVIE NOT SELECTED */
+
+.alt-cover {
+  height: 500px;
+  align-items: center;
+  justify-content: center;
+}
+
+.alt-cover h1 {
+  font-size: 7rem;
+  font-weight: bolder;
+  text-shadow: 2px 2px 0px #808080;
+}
+
+/* WICKED CSS ANIMATIONS */
+.fadeIn {
+  animation-name: fadeIn;
+  -webkit-animation-name: fadeIn;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-timing-function: ease
+}
+
+.fadeIn,
+.fadeOut {
+  animation-timing-function: ease;
+  animation-duration: 2s
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0
+  }
+
+  100% {
+    opacity: 1
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0
+  }
+
+  100% {
+    opacity: 1
+  }
+}

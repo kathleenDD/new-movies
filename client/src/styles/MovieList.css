@@ -1,0 +1,39 @@
+.movie-list {
+  padding-top: 10px;
+  width: 95%;
+  overflow-y: scroll;
+}
+
+.item-wrapper {
+  border: 1px solid #000;
+  margin: 10px;
+  align-items: center;
+  filter: opacity(.5);
+  color: #fff;
+  padding: 10px;
+  transition: .5s ease;
+}
+
+.item-wrapper:hover {
+  filter: opacity(1);
+  color: #fff;
+  border: 1px solid #E50914;
+  transition: .5s ease;
+}
+
+.item-wrapper p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-left: 10px;
+}
+
+.item-wrapper img.thumbnail {
+  width: 40px;
+  height: auto;
+  object-fit: cover;
+}
+
+.movie-list a {
+  text-decoration: none;
+}
