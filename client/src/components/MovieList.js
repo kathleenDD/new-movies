@@ -1,16 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import "../styles/MovieList.css";
 
 const MovieList = (props) => {
   return (
     <div className="movie-list">
       {props.data.map((movie) => (
-        <Link
+        <>
+        {/* <Link
           to={`/movies/${movie.id}`}
           onClick={props.handleClick}
           key={movie.id}
-        >
+        > */}
           <div
             className="item-wrapper flex-row"
             data-value={movie.id}
@@ -23,7 +24,8 @@ const MovieList = (props) => {
             />
             <p data-value={movie.id}>{movie.title}</p>
           </div>
-        </Link>
+        {/* </Link> */}
+        </>
       ))}
     </div>
   );

@@ -1,12 +1,19 @@
 import React from "react";
-import Cover from "./Cover";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar as fasStar } from "@fortawesome/free-solid-svg-icons";
 import { faStar as farStar } from "@fortawesome/free-regular-svg-icons";
+import Cover from "./Cover";
 import "../styles/MovieDetails.css";
 
 const MovieDetails = (props) => {
   const movie = props.data[0];
+
+  // const getMovie = () => {
+  //   const endpoint = `/movies/${props.match.params.id}`;
+  //   API.get(endpoint).then((apiResponse) => {
+  //     setCompanyInfo(apiResponse.data);
+  //   });
+  // };
 
   const starRatings = (rating) => {
     let stars = [];

@@ -16,6 +16,14 @@ body {
   color: #f9f6e5;
 }
 
+a,
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
 h1,
 h2,
 h3,

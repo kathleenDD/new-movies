@@ -5,6 +5,7 @@ import MovieDetails from "./components/MovieDetails";
 import MovieList from "./components/MovieList";
 import SearchBar from "./components/SearchBar";
 import Cover from "./components/Cover";
+import Random from "./components/Random";
 import "./styles/App.css";
 
 const App = () => {
@@ -17,7 +18,6 @@ const App = () => {
   const [clickedMovie, setClickedMovie] = useState([]);
   const [filteredMovies, setFilteredMovies] = useState([]);
   const [searchValue, setSearchValue] = useState("");
-  const [logoClicked, setLogoClicked] = useState(false);
 
   // Fetch API
   const fetchData = async () => {
@@ -62,17 +62,11 @@ const App = () => {
       (movie) => movie.id.toString() === attribute
     );
     setClickedMovie(clickedTitle);
-    setLogoClicked(false);
-  };
-
-  // shows another component when logo is clicked
-  const handleHome = () => {
-    setLogoClicked(true);
   };
 
   return (
     <div className="App flex-col">
-      <Header handleHome={handleHome} />
+      <Header />
       <div className="main flex-row">
         <div className="left-section flex-col">
           <SearchBar
@@ -84,15 +78,19 @@ const App = () => {
         </div>
         <div className="movie-details">
           <Switch>
-            {logoClicked ? (
-              <Route path="/">
-                <Cover />
-              </Route>
-            ) : (
-              <Route>
-                <MovieDetails data={clickedMovie} />
-              </Route>
-            )}
+            <Route exact path="/">
+              <Cover />
+            </Route>
+            <Route exact path="/movies">
+              <Cover />
+            </Route>
+            <Route path="/movies/:id">
+              {/* <Route path="/movies/:id" component={MovieDetails} /> */}
+              <MovieDetails data={clickedMovie} />
+            </Route>
+            <Route path="/random">
+              <Random />
+            </Route>
           </Switch>
         </div>
       </div>
