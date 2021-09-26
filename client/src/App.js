@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Switch, Route } from "react-router-dom";
 import Header from "./components/Header";
 import MovieDetails from "./components/MovieDetails";
 import MovieList from "./components/MovieList";
@@ -33,7 +34,7 @@ const App = () => {
   // search input onChange - show movies that match search input value
   const handleSearch = (e) => {
     const { value } = e.target;
-    
+
     if (value) {
       setSearchValue(value);
       setFilteredMovies(
@@ -49,8 +50,8 @@ const App = () => {
   // clears input field when backspace is pressed
   const handleClear = (e) => {
     if (e.keyCode === 8) {
-      setSearchValue("")
-      setFilteredMovies(movies)
+      setSearchValue("");
+      setFilteredMovies(movies);
     }
   };
 
@@ -82,7 +83,17 @@ const App = () => {
           <MovieList data={filteredMovies} handleClick={handleMovieClick} />
         </div>
         <div className="movie-details">
-          {logoClicked ? <Cover /> : <MovieDetails data={clickedMovie} />}
+          <Switch>
+            {logoClicked ? (
+              <Route path="/">
+                <Cover />
+              </Route>
+            ) : (
+              <Route>
+                <MovieDetails data={clickedMovie} />
+              </Route>
+            )}
+          </Switch>
         </div>
       </div>
     </div>
