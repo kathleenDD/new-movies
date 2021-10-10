@@ -1,4 +1,5 @@
 import React from "react";
+// import { useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar as fasStar } from "@fortawesome/free-solid-svg-icons";
 import { faStar as farStar } from "@fortawesome/free-regular-svg-icons";
@@ -7,9 +8,10 @@ import "../styles/MovieDetails.css";
 
 const MovieDetails = (props) => {
   const movie = props.data[0];
+  // let {id} = useParams();
 
   // const getMovie = () => {
-  //   const endpoint = `/movies/${props.match.params.id}`;
+  //   const endpoint = `/movies/:id`;
   //   API.get(endpoint).then((apiResponse) => {
   //     setCompanyInfo(apiResponse.data);
   //   });

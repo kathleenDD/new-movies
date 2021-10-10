@@ -9,8 +9,8 @@ import Random from "./components/Random";
 import "./styles/App.css";
 
 const App = () => {
-  const API_URL =
-    "https://api.themoviedb.org/3/movie/top_rated?api_key=30f97dabd23a55145e8c6e9693269e9f&language=en-US&page=1";
+  // const API_URL =
+  //   "https://api.themoviedb.org/3/movie/top_rated?api_key=30f97dabd23a55145e8c6e9693269e9f&language=en-US&page=1";
   // const API_URL =
   //   "https://api.themoviedb.org/3/movie/popular?api_key=30f97dabd23a55145e8c6e9693269e9f&language=en-US&page=1";
 
@@ -20,12 +20,34 @@ const App = () => {
   const [searchValue, setSearchValue] = useState("");
 
   // Fetch API
+  // const fetchData = async () => {
+  //   const res = await fetch("/");
+  //   console.log("RES", res)
+  //   // const data = await res.json();
+  //   const data = [{"movie1":"voila"}];
+  //   setMovies(data);
+  //   setFilteredMovies(data);
+  // };
+
   const fetchData = async () => {
-    const res = await fetch(API_URL);
-    const data = await res.json();
-    setMovies(data.results);
-    setFilteredMovies(data.results);
+    const response = await fetch('/');
+    const body = await response.json();
+    if (response.status !== 200) {
+      console.log("error")
+      throw Error(body.message) 
+    }
+    console.log("BODY1", response)
+    console.log("BODY2", body)
+    setMovies(body);
+    setFilteredMovies(body);
   };
+
+  // const fetchData = async () => {
+  //   const res = await fetch(API_URL);
+  //   const data = await res.json();
+  //   setMovies(data.results);
+  //   setFilteredMovies(data.results);
+  // };
 
   useEffect(() => {
     fetchData();
@@ -84,7 +106,7 @@ const App = () => {
             <Route exact path="/movies">
               <Cover />
             </Route>
-            <Route path="/movies/:id">
+            <Route>
               {/* <Route path="/movies/:id" component={MovieDetails} /> */}
               <MovieDetails data={clickedMovie} />
             </Route>

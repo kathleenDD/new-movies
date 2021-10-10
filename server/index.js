@@ -1,14 +1,37 @@
 const express = require("express");
+const axios = require("axios");
 const PORT = process.env.PORT || 3001;
 const app = express();
-const API_URL =
-    "https://api.themoviedb.org/3/movie/top_rated?api_key=30f97dabd23a55145e8c6e9693269e9f&language=en-US&page=1";
-  // const API_URL =
-  //   "https://api.themoviedb.org/3/movie/popular?api_key=30f97dabd23a55145e8c6e9693269e9f&language=en-US&page=1";
 
-app.get("/api", (req, res) => {
-    res.send(API_URL.results);
-  });
+const API_URL =
+  "https://api.themoviedb.org/3/movie/top_rated?api_key=30f97dabd23a55145e8c6e9693269e9f&language=en-US&page=1";
+// const API_URL =
+//   "https://api.themoviedb.org/3/movie/popular?api_key=30f97dabd23a55145e8c6e9693269e9f&language=en-US&page=1";
+
+// const movies = axios.get(API_URL)
+//   .then(response => {
+//     console.log("data fetched");
+//   })
+//   .catch(error => {
+//     console.log(error);
+//   });
+
+// app.get("/", (req, res) => {
+//   res.send(movies);
+//   console.log(movies);
+// });
+
+app.get("/", async (req, res) => {
+	try {
+		const response = await axios({
+			url: API_URL,
+			method: "get",
+		});
+    res.status(200).json(response.data);
+	} catch (err) {
+		res.status(500).json({ message: err });
+	}
+});
 
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
