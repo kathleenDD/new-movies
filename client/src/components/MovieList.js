@@ -6,7 +6,6 @@ const MovieList = (props) => {
   return (
     <div className="movie-list">
       {props.data.map((movie) => (
-        <>
         <Link
           to={`/movies/${movie.id}`}
           onClick={props.handleClick}
@@ -25,7 +24,6 @@ const MovieList = (props) => {
             <p data-value={movie.id}>{movie.title}</p>
           </div>
         </Link>
-        </>
       ))}
     </div>
   );

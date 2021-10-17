@@ -38,7 +38,6 @@ const App = () => {
       console.log("error")
       throw Error(body.message) 
     }
-    console.log("BODY2", results)
     setMovies(results);
     setFilteredMovies(results);
   };

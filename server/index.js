@@ -1,3 +1,6 @@
+const tracer = require('dd-trace').init();
+
+
 const express = require("express");
 const dotenv = require('dotenv').config();
 const axios = require("axios");
@@ -16,19 +19,6 @@ const API_URL =
   "https://api.themoviedb.org/3/movie/top_rated?api_key=30f97dabd23a55145e8c6e9693269e9f&language=en-US&page=1";
 // const API_URL =
 //   "https://api.themoviedb.org/3/movie/popular?api_key=30f97dabd23a55145e8c6e9693269e9f&language=en-US&page=1";
-
-// const movies = axios.get(API_URL)
-//   .then(response => {
-//     console.log("data fetched");
-//   })
-//   .catch(error => {
-//     console.log(error);
-//   });
-
-// app.get("/", (req, res) => {
-//   res.send(movies);
-//   console.log(movies);
-// });
 
 app.get("/", async (req, res) => {
 	try {
