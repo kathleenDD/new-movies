@@ -9,6 +9,7 @@ import Random from "./components/Random";
 import "./styles/App.css";
 
 const App = () => {
+  const BASE_URL = process.env.REACT_APP_BASE_URL;
   // const API_URL =
   //   "https://api.themoviedb.org/3/movie/top_rated?api_key=30f97dabd23a55145e8c6e9693269e9f&language=en-US&page=1";
   // const API_URL =
@@ -30,16 +31,16 @@ const App = () => {
   // };
 
   const fetchData = async () => {
-    const response = await fetch('/');
+    const response = await fetch(BASE_URL);
     const body = await response.json();
+    const results = body.results
     if (response.status !== 200) {
       console.log("error")
       throw Error(body.message) 
     }
-    console.log("BODY1", response)
-    console.log("BODY2", body)
-    setMovies(body);
-    setFilteredMovies(body);
+    console.log("BODY2", results)
+    setMovies(results);
+    setFilteredMovies(results);
   };
 
   // const fetchData = async () => {
