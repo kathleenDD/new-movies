@@ -9,6 +9,29 @@
       name="description"
       content="Web site created using create-react-app"
     />
+    <script>
+      (function(h,o,u,n,d) {
+        h=h[d]=h[d]||{q:[],onReady:function(c){h.q.push(c)}}
+        d=o.createElement(u);d.async=1;d.src=n
+        n=o.getElementsByTagName(u)[0];n.parentNode.insertBefore(d,n)
+      })(window,document,'script','https://www.datadoghq-browser-agent.com/datadog-rum-v4.js','DD_RUM')
+      DD_RUM.onReady(function() {
+        DD_RUM.init({
+          clientToken: 'pub9186ec48a74ad29c10f5ec6603c56708',
+          applicationId: '879c0624-8d7f-4255-8b2f-0fe133678a16',
+          site: 'datadoghq.com',
+          service:'netfleet',
+          env:'prod',
+          // Specify a version number to identify the deployed version of your application in Datadog 
+          // version: '1.0.0',
+          sampleRate: 100,
+          trackInteractions: true,
+          defaultPrivacyLevel: 'mask-user-input'
+        });
+        
+        DD_RUM.startSessionReplayRecording();
+      })
+    </script>
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <!--
       manifest.json provides metadata used when your web app is installed on a
